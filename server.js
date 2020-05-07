@@ -1,8 +1,10 @@
 const http = require('http')
 
-const startServer = () => {
+const startServer = (route) => {
     const onRequest = (req, res) => {
-        res.writeHead(200, { "Content-Type": "text/plain"})
+        const path = req.url
+        route(path)
+        res.writeHead(200, { "Content-Type": "text/plain" })
         res.write("Hello from our application")
         res.end()
     }
