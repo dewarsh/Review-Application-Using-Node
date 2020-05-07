@@ -17,8 +17,7 @@ const home = (res) => {
 const review = (res, reviewData) => {
     console.log("Executing Review Handler")
     res.writeHead(200, { "Content-Type": "text/plain" })
-    res.write(querystring.parse(reviewData).text)
-    res.end()
+    res.end("Your Review: "+querystring.parse(reviewData).text, 'utf8')
 }
 
 module.exports = {

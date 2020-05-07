@@ -4,6 +4,7 @@ const startServer = (route, handle) => {
     const onRequest = (req, res) => {
         const path = req.url
         let reviewData = ""
+        req.setEncoding('utf8')
         req.on("data", (chunk) => {
             reviewData += chunk
         })
